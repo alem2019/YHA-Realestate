@@ -1,0 +1,142 @@
+a, a:active{
+    color: #000;
+    text-decoration: none;
+}
+.navbar-light .navbar-nav .nav-link{
+color: #52734D; 
+}
+.navbar-light .navbar-nav .nav-link.active{
+    border-bottom: 1px solid #52734D;
+    color: #52734D; 
+    font-weight: 700;
+    padding-bottom: 0;
+    
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: red;
+}
+.search-wrapper{
+    background-color: #52734D;
+    padding: 10px 40px 10px 40px;
+}
+.search-wrapper h1{
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+.search-wrapper h1, p{
+    color: #DDFFBC;
+}
+
+.submit-button{
+    background-color: #DDFFBC;
+    color: #52734D; 
+    width: 100%;
+   
+}
+
+.submit-button:hover{
+    background-color: #91C788;
+}
+.nav-item{
+    padding-right: 20px;
+}
+.section-padding{
+    padding: 70px 0 70px 0;
+   
+}
+.main-image{
+    width: 350;
+    height: auto;
+}
+.card{
+    position: relative;
+    max-width: 347px;
+    
+}
+@media (max-width: 768px){
+    .card{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.card h3, h5{
+    text-align: center;
+}
+.image-price-overlay{
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    background-color: #52734D;
+    color: #FFF;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 7px;
+}
+footer{
+    background-color: #52734D;
+   
+}
+.footer-icon{
+    font-size: 4rem;
+    padding: 40px 0 20px 0;
+    
+}
+.footer-icon, footer p, footer h2{
+    color: #DDFFBC;
+    
+}
+.footer-copyright{
+    background-color: #011910;    
+}
+.footer-copyright a{
+    color: #DDFFBC;
+}
+.footer-copyright a:hover{
+    color: red;
+}
+.listing-heading{
+    background-color: #52734D;
+    padding: 50px 0 50px 0;
+    text-align: center;
+    color: #DDFFBC;
+}
+.listing-heading h1{
+    font-size: 3.5rem;
+}
+.listing-heading p{
+    font-size: 1.5rem;
+    padding-top: 10px;
+}
+.breadcrumb-navigation{
+    background-color: #D4D4D4;
+    padding: 10px 5px 10px 10px;
+}
+
+.card a{
+    background-color: #52734D;
+}
+.card a:hover{
+    background-color: #DDFFBC;
+    color: #52734D;
+}
+a.page-link{
+    color: #52734D;
+  
+}
+.page-item.active .page-link{
+    background-color: #52734D;
+    border-color: #52734D;
+}
+.image-main{
+    width: 800px;
+    height: auto;
+}
+img{width: 100%;}
+.about-text{
+    color: #808080;
+}
+.our-team h2{
+    background-color: #52734D;
+    color: #DDFFBC;
+}

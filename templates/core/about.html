@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Main Content -->
+<div class="container-fluid listing-heading">
+    <div class="container">
+        <h1>About Us</h1>
+
+    </div>
+</div>
+
+<div class="container mt-3 mb-5 pb-5">
+    <div class="row mb-4">
+        <div class="col">
+            <div class="breadcrumb-navigation">
+                <i class="fas fa-home"></i> <a href="{% url 'index' %}">Home</a> / About
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col md-9">
+            <h2>A Real Estate Company with a Purpose.</h2>
+            <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt minima,
+                rem atque dolorum
+
+            </p>
+            <img src="{% static 'img/about.jpg' %}" alt="">
+            <p class="about-text pt-3">
+                Nulla faucibus odio et consequat scelerisque. Curabitur accumsan imperdiet lectus ut lacinia. In
+                elit nunc, pellentesque in imperdiet vel, pulvinar sed diam. Morbi consequat lacinia est facilisis
+                commodo. Mauris viverra erat non lectus pretium finibus.
+            </p>
+
+
+        </div>
+        <div class="col md-3 d-flex justify-content-center">
+            {% if mvp_realtors %}
+            {% for realtor in mvp_realtors %}
+            <div class="card about-card">
+                <img class="card-img-top" src="{{ realtor.photo.url}}" alt="{{realtor.name}}">
+                <div class="card-body">
+                    <h3>Seller of the month</h3>
+                    <h5>{{realtor.name}}</h5>
+                    <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                        necessitatibus, a numquam
+                        ipsum nisi corporis dolorem suscipit.</p>
+                </div>
+
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+<!-- end of container -->
+<section class="our-team">
+    <h2 class="text-center py-5 mt-5 mb-5">OUR TEAM</h2>
+    <div class="container pt-5">
+        <div class="col d-flex flex-wrap flex-row justify-content-between p-2">
+            {% if realtors %}
+            {% for realtor in realtors %}
+
+            <div class="card mb-4">
+                <img class="card-img-top" src="{{ realtor.photo.url }}" alt="{{realtor.name}}">
+                <div class="card-body">
+                    <h3 class="card-title">{{realtor.name}}</h3>
+
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+<!-- end of our-tema section -->
+
+{% endblock %}

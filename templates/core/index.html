@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load humanize %}
+
+{% load static %}
+<!-- Main Content -->
+<div class="container section-padding">
+    <!-- Search wrapper -->
+    <section class="search-wrapper">
+        <div class="search-title">
+            <h1 class="text-center py-3">Search for your Dream Home</h1>
+            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum justo erat,
+                semper quis
+                velit
+                cursus, tempor vehicula nunc.</>
+                <form action="{% url 'search' %}">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="sr-only">Keywords</label>
+                            <input type="text" name="keywords" class="form-control"
+                                placeholder="Keyword (Flat, House, etc)">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="input-group">
+                                <select class="form-select" name="borough">
+                                    <option selected="true" disabled="disabled">Boroughs</option>
+                                    {% for key, value in boroughs_choices.items %}
+                                    <option value="{{key}}">{{value}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="input-group">
+                                <select class="form-select" name="min_price">
+                                    <option selected="true" disabled="disabled">Min Price</option>
+                                    {% for key, value in min_price_choices.items %}
+                                    <option value="{{key}}">{{value}}</option>
+                                    {% endfor %}
+
+
+                                </select>
+                                <select class="form-select" name="max_price">
+                                    <option selected="true" disabled="disabled">Max Price</option>
+                                    {% for key, value in max_price_choices.items %}
+                                    <option value="{{key}}">{{value}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <select class="form-select" name="bedrooms">
+                                <option selected="true" disabled="disabled">Bedrooms</option>
+                                {% for key, value in bedroom_choices.items %}
+                                <option value="{{key}}">{{value}}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-outline-secondary submit-button ml-4 mr-4" type="submit">Submit
+                                Form</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </section>
+    <!-- End of search wrapper section -->
+
+    <section class="section-padding">
+        <div class="row">
+            <h1 class="text-center pb-5">Latest Properties to Buy</h1>
+            <div class="col d-flex flex-wrap flex-row justify-content-between p-2">
+                {% if listings %}
+                {% for listing in listings %}
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{listing.photo_main.url }}" alt="Card image cap">
+                    <div class="image-price-overlay">
+                        £{{listing.price | intcomma}}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{listing.title}}</h3>
+                        <h5>{{listing.borough}}, {{listing.zipcode}}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="fas fa-th-large"></i> Sqft: {{listing.sqft}}</li>
+                        <li class="list-group-item"><i class="fas fa-bed"></i> Bedrooms: {{listing.bedrooms}}</li>
+                        <li class="list-group-item"><i class="fas fa-bath"></i> Bathrooms: {{listing.bathrooms}}</li>
+                    </ul>
+                    <a href="{% url 'listing' listing.id %}" class="btn btn-primary">View</a>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+<!-- End of container -->
+
+<!-- End of main content -->
+
+{% endblock  %}

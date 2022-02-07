@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+
+{% if listing %}
+
+<!-- Main Content -->
+<div class="container-fluid listing-heading">
+    <div class="container">
+        <h1>{{listing.title}}</h1>
+        <p>Hampstead, NW3 1DN </p>
+    </div>
+</div>
+
+<div class="container mt-3 mb-5">
+    <div class="row mb-4">
+        <div class="col">
+            <div class="breadcrumb-navigation">
+                <i class="fas fa-home"></i> <a href="{% url 'index' %}">Home</a> / <a
+                    href="{% url 'listings' %}">Listings</a> /
+                {{listing.title}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col md-9">
+            <img src="{{ listing.photo_main.url}}" class="image-main" alt="{{listing.title}}">
+
+            <div class="row my-3">
+                <div class="col-md-3">
+                    <a href="{{ listing.photo_1.url}}" data-lightbox="thumb-images">
+                        <img src="{{ listing.photo_1.url}}" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-3">
+                    <a href="{{ listing.photo_2.url}}" data-lightbox="thumb-images">
+                        <img src="{{ listing.photo_2.url}}" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-3">
+                    <a href="{{ listing.photo_3.url}}" data-lightbox="thumb-images">
+                        <img src="{{ listing.photo_3.url}}" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-3">
+                    <a href="{{ listing.photo_4.url}}" data-lightbox="thumb-images">
+                        <img src="{{ listing.photo_4.url}}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col md-3 d-flex justify-content-center">
+            <div class="card">
+                <img class="card-img-top" src="{{ listing.realtor.photo.url}}" alt="Althea Schulist">
+                <div class="card-body">
+                    <h3>Property Realtor</h3>
+                    <h5>{{listing.realtor.name}}</h5>
+                </div>
+                <a href="#" class="btn btn-primary">Make Enquiry</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endif %}
+
+{% endblock %}
